@@ -1,62 +1,36 @@
 import java.util.ArrayList;
 
 public class Dom {
-
-int liczbaOkien,liczbaPokoi,liczbaKuchni,liczbaLazienek,liczbaDrzwi;
-
-    ArrayList<Drzwi> drzwi = new ArrayList<Drzwi>();
-    ArrayList<Kuchnia> kuchnia = new ArrayList<Kuchnia>();
-    ArrayList<Lazienka> lazienka = new ArrayList<Lazienka>();
-    ArrayList<Okno> okno = new ArrayList<Okno>();
-    ArrayList<Pokoj> pokoj = new ArrayList<Pokoj>();
-
-    public Dom() {
-
-    }
-
-    public void ustawLiczbeDrzwi(int liczbaDrzwi){
-    this.liczbaDrzwi=liczbaDrzwi;
-}
-    public void ustawLiczbeKuchni(int liczbaKuchni){
-        this.liczbaKuchni=liczbaKuchni;
-    }
-    public void ustawLiczbeLazienek(int liczbaLazienek){
-        this.liczbaLazienek=liczbaLazienek;
-    }
-    public void ustawLiczbeOkien(int liczbaOkien){
-        this.liczbaOkien=liczbaOkien;
-    }
-    public void ustawLiczbePokoi(int liczbaPokoi){
-        this.liczbaPokoi = liczbaPokoi;
-    }
-
-    public void informacjeODomie(){
-        System.out.println("Liczba drzwi: "+liczbaDrzwi);
-        System.out.println("Liczba kuchni: "+liczbaKuchni);
-        System.out.println("Liczba lazienek: "+liczbaLazienek);
-        System.out.println("Liczba okien: "+liczbaOkien);
-        System.out.println("Liczba pokoi: "+liczbaPokoi);
-    }
-
-    public Dom(int liczbaOkien, ArrayList<Drzwi> drzwi, ArrayList<Kuchnia> kuchnia, ArrayList<Lazienka> lazienka, ArrayList<Okno> okno, ArrayList<Pokoj> pokoj) {
-        this.liczbaOkien = liczbaOkien;
+    private int drzwi;
+    private int okna;
+    private int pokoje;
+    private int kuchnie;
+    private ArrayList<Lazienka> lazienki;
+    
+    public Dom(int drzwi, int okna, int pokoje, int kuchnie) {
         this.drzwi = drzwi;
-        this.kuchnia = kuchnia;
-        this.lazienka = lazienka;
-        this.okno = okno;
-        this.pokoj = pokoj;
+        this.okna = okna;
+        this.pokoje = pokoje;
+        this.kuchnie = kuchnie;
+        this.lazienki = new ArrayList<>();
     }
-    public void generuj(){
-        Dom dom = new Dom();
-        dom.ustawLiczbeDrzwi(1);
-        dom.ustawLiczbeKuchni(1);
-        dom.ustawLiczbeLazienek(1);
-        dom.ustawLiczbeOkien(4);
-        dom.ustawLiczbePokoi(2);
-        System.out.println("Liczba drzwi: "+liczbaDrzwi);
-        System.out.println("Liczba kuchni: "+liczbaKuchni);
-        System.out.println("Liczba lazienek: "+liczbaLazienek);
-        System.out.println("Liczba okien: "+liczbaOkien);
-        System.out.println("Liczba pokoi: "+liczbaPokoi);
+
+    public void dodajLazienke(Lazienka lazienka) {
+        lazienki.add(lazienka);
+    }
+
+    public void wyswietlInformacje() {
+        System.out.println("Dom ma:");
+        System.out.println("- " + drzwi + " drzwi");
+        System.out.println("- " + okna + " okna");
+        System.out.println("- " + pokoje + " pokoje");
+        System.out.println("- " + kuchnie + " kuchnie");
+        System.out.println("- " + lazienki.size() + " łazienki");
+
+
+        for (int i = 0; i < lazienki.size(); i++) {
+            System.out.println("Łazienka " + (i + 1) + ":");
+            lazienki.get(i).wyswietlInformacje();
+        }
     }
 }
