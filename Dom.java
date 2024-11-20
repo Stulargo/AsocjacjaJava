@@ -1,36 +1,40 @@
 import java.util.ArrayList;
 
-public class Dom {
-    private int drzwi;
-    private int okna;
-    private int pokoje;
-    private int kuchnie;
-    private ArrayList<Lazienka> lazienki;
-    
-    public Dom(int drzwi, int okna, int pokoje, int kuchnie) {
-        this.drzwi = drzwi;
-        this.okna = okna;
-        this.pokoje = pokoje;
-        this.kuchnie = kuchnie;
+public class Dom extends Pomieszczenie {
+    ArrayList<Lazienka> lazienki;
+    ArrayList<Kuchnia> kuchnie;
+    ArrayList<Okno> okna;
+    ArrayList<Pokoj> pokoje;
+
+    public Dom() {
+        super(); //Wywolanie konstruktora z pomieszczenia
         this.lazienki = new ArrayList<>();
+        this.kuchnie = new ArrayList<>();
+        this.okna = new ArrayList<>();
+        this.pokoje = new ArrayList<>();
     }
 
-    public void dodajLazienke(Lazienka lazienka) {
-        lazienki.add(lazienka);
+    public void createRooms(int n) {
+        for (int i = 0; i < n; i++) {
+            this.pokoje.add(new Pokoj());
+        }
     }
 
-    public void wyswietlInformacje() {
-        System.out.println("Dom ma:");
-        System.out.println("- " + drzwi + " drzwi");
-        System.out.println("- " + okna + " okna");
-        System.out.println("- " + pokoje + " pokoje");
-        System.out.println("- " + kuchnie + " kuchnie");
-        System.out.println("- " + lazienki.size() + " łazienki");
+    public void createKitchens(int n) {
+        for (int i = 0; i < n; i++) {
+            this.kuchnie.add(new Kuchnia());
+        }
+    }
 
+    public void createWindows(int n) {
+        for (int i = 0; i < n; i++) {
+            this.okna.add(new Okno());
+        }
+    }
 
-        for (int i = 0; i < lazienki.size(); i++) {
-            System.out.println("Łazienka " + (i + 1) + ":");
-            lazienki.get(i).wyswietlInformacje();
+    public void createBathrooms(int n) {
+        for (int i = 0; i < n; i++) {
+            this.lazienki.add(new Lazienka());
         }
     }
 }

@@ -1,44 +1,38 @@
 public class Main {
     public static void main(String[] args) {
-        Dom dom1 = new Dom(4, 4, 2, 1);
+        Dom house1 = new Dom();
+        Dom house2 = new Dom();
 
-        Lazienka lazienka1 = new Lazienka();
-        lazienka1.dodajPrysznic("Prysznic 1");
-        lazienka1.dodajWanne("Wanna 1");
-        lazienka1.dodajUmywalke("Umywalka 1");
-        lazienka1.dodajPralke("Pralka 1");
-        lazienka1.dodajSzafke("Szafka 1");
+        house1.createBathrooms(1);
+        house1.createDoors(1);
+        house1.createWindows(4);
+        house1.createKitchens(1);
+        house1.createRooms(2);
 
-        Lazienka lazienka2 = new Lazienka();
-        lazienka2.dodajPrysznic("Prysznic 2");
-        lazienka2.dodajWanne("Wanna 2");
-        lazienka2.dodajUmywalke("Umywalka 2");
+        house2.createBathrooms(2);
+        house2.createDoors(1);
+        house2.createWindows(20);
+        house2.createKitchens(1);
+        house2.createRooms(15);
 
-        dom1.dodajLazienke(lazienka1);
-        dom1.dodajLazienke(lazienka2);
+        Lazienka bath1 = new Lazienka();
+        Lazienka bath2 = new Lazienka();
 
-        dom1.wyswietlInformacje();
+        bath1.createShowers(1);
+        bath1.createBathtubs(1);
+        bath1.createSinks(1);
+        bath1.createWashingMachines(1);
+        bath1.createClosets(1);
 
-        System.out.println();
+        bath2.createShowers(1);
+        bath2.createBathtubs(1);
+        bath2.createSinks(1);
+        bath2.createWashingMachines(1);
+        bath2.createClosets(1);
 
-        Dom dom2 = new Dom(6, 6, 4, 2);
-
-        Lazienka lazienka3 = new Lazienka();
-        lazienka3.dodajPrysznic("Prysznic 3");
-        lazienka3.dodajWanne("Wanna 3");
-        lazienka3.dodajUmywalke("Umywalka 3");
-        lazienka3.dodajPralke("Pralka 3");
-        lazienka3.dodajSzafke("Szafka 3");
-
-        Lazienka lazienka4 = new Lazienka();
-        lazienka4.dodajPrysznic("Prysznic 4");
-        lazienka4.dodajWanne("Wanna 4");
-        lazienka4.dodajUmywalke("Umywalka 4");
-
-
-        dom2.dodajLazienke(lazienka3);
-        dom2.dodajLazienke(lazienka4);
-
-        dom2.wyswietlInformacje();
+        bath1.openDoors();
+        bath2.openDoors();
+        house1.openDoors();
+        house2.openDoors();
     }
 }

@@ -1,46 +1,53 @@
 import java.util.ArrayList;
 
-public class Lazienka {
-    private ArrayList<String> prysznice;
-    private ArrayList<String> wanny;
-    private ArrayList<String> umywalki;
-    private ArrayList<String> pralki;
-    private ArrayList<String> szafki;
+public class Lazienka extends Pomieszczenie {
+    ArrayList<Prysznic> prysznice;
+    ArrayList<Wanna> wanny;
+    ArrayList<Umywalka> umywalki;
+    ArrayList<Pralka> pralki;
+    ArrayList<Szafa> szafy;
 
     public Lazienka() {
-        prysznice = new ArrayList<>();
-        wanny = new ArrayList<>();
-        umywalki = new ArrayList<>();
-        pralki = new ArrayList<>();
-        szafki = new ArrayList<>();
+        super();  // Wywolanie konstruktora z pomieszczenia
+        this.prysznice = new ArrayList<>();
+        this.wanny = new ArrayList<>();
+        this.umywalki = new ArrayList<>();
+        this.pralki = new ArrayList<>();
+        this.szafy = new ArrayList<>();
     }
 
-    public void dodajPrysznic(String prysznic) {
-        prysznice.add(prysznic);
+    public void createShowers(int n) {
+        for (int i = 0; i < n; i++) {
+            this.prysznice.add(new Prysznic());
+        }
     }
 
-    public void dodajWanne(String wanna) {
-        wanny.add(wanna);
+    public void createBathtubs(int n) {
+        for (int i = 0; i < n; i++) {
+            this.wanny.add(new Wanna());
+        }
     }
 
-    public void dodajUmywalke(String umywalka) {
-        umywalki.add(umywalka);
+    public void createSinks(int n) {
+        for (int i = 0; i < n; i++) {
+            this.umywalki.add(new Umywalka());
+        }
     }
 
-    public void dodajPralke(String pralka) {
-        pralki.add(pralka);
+    public void createWashingMachines(int n) {
+        for (int i = 0; i < n; i++) {
+            this.pralki.add(new Pralka());
+        }
     }
 
-    public void dodajSzafke(String szafka) {
-        szafki.add(szafka);
+    public void createClosets(int n) {
+        for (int i = 0; i < n; i++) {
+            this.szafy.add(new Szafa());
+        }
     }
-
-    public void wyswietlInformacje() {
-        System.out.println("Łazienka zawiera:");
-        System.out.println(prysznice.size() + " pryszniców.");
-        System.out.println(wanny.size() + " wanny.");
-        System.out.println(umywalki.size() + " umywalki.");
-        System.out.println(pralki.size() + " pralki.");
-        System.out.println(szafki.size() + " szafki.");
-    }
+    public class Prysznic {}
+    public class Wanna {}
+    public class Umywalka {}
+    public class Pralka {}
+    public class Szafa {}
 }
