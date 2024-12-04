@@ -30,36 +30,57 @@ public class Main {
         lazienka2.generatePralki(1);
         lazienka2.generateSzafy(1);
 
-        lazienka1.generateDrzwi(1, null);
-
         Kuchnia kuchnia = new Kuchnia();
-        kuchnia.generateDrzwi(1, lazienka1);
 
         Pokoj pokoj = new Pokoj();
         Pokoj pokoj2 = new Pokoj();
-        pokoj.generateDrzwi(1, lazienka1);
+        Pokoj pokoj3 = new Pokoj();
+        Korytarz korytarz = new Korytarz();
+        Korytarz korytarz2 = new Korytarz();
+        Korytarz korytarz3 = new Korytarz();
+        Korytarz korytarz4 = new Korytarz();
+        Korytarz korytarz5 = new Korytarz();
 
-        // Ustawienie wzajemnego połączenia drzwi
-        pokoj.drzwi.get(0).drugaStronaDrzwi = kuchnia.drzwi.get(0);
-        kuchnia.drzwi.get(0).drugaStronaDrzwi = lazienka1.drzwi.get(0);
-        lazienka1.drzwi.get(0).drugaStronaDrzwi = lazienka1.drzwi.get(0);
 
-       /* // Otwieranie drzwi w poszczególnych pomieszczeniach
+        pokoj.generateDrzwi(1, korytarz);
+        korytarz.generateDrzwi(1,kuchnia);
+        kuchnia.generateDrzwi(1,korytarz2);
+        korytarz2.generateDrzwi(1,lazienka1);
+        lazienka1.generateDrzwi(1,korytarz3);
+        korytarz3.generateDrzwi(1,lazienka2);
+        lazienka2.generateDrzwi(1,korytarz4);
+        korytarz4.generateDrzwi(1,pokoj2);
+        pokoj2.generateDrzwi(1,pokoj3);
+        korytarz5.generateDrzwi(0,null);
+
+
+
+        kuchnia.drzwi.get(0).drugaStronaDrzwi = korytarz.drzwi.get(0);
+
+
+       /*
         lazienka1.openEveryDoor();
         kuchnia.openEveryDoor();
         dom1.openEveryDoor();
         pokoj.openEveryDoor();
 
-        // Zamykanie drzwi w poszczególnych pomieszczeniach
         lazienka1.closeEveryDoor();
         kuchnia.closeEveryDoor();
         dom1.closeEveryDoor();
         pokoj.closeEveryDoor();*/
 
-        // Sprawdzanie, gdzie prowadzą drzwi
+
         pokoj.drzwi.get(0).gdzieProwadzaDrzwi();
+        korytarz.drzwi.get(0).gdzieProwadzaDrzwi();
         kuchnia.drzwi.get(0).gdzieProwadzaDrzwi();
+        korytarz2.drzwi.get(0).gdzieProwadzaDrzwi();
         lazienka1.drzwi.get(0).gdzieProwadzaDrzwi();
+        korytarz3.drzwi.get(0).gdzieProwadzaDrzwi();
+        lazienka2.drzwi.get(0).gdzieProwadzaDrzwi();
+        korytarz4.drzwi.get(0).gdzieProwadzaDrzwi();
+        pokoj2.drzwi.get(0).gdzieProwadzaDrzwi();
+        korytarz5.drzwi.get(0).gdzieProwadzaDrzwi();
+
 
 
 
