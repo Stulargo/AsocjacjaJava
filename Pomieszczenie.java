@@ -1,21 +1,29 @@
 import java.util.ArrayList;
 
-public abstract class Pomieszczenie {
-    ArrayList<Drzwi> drzwi;  // A list of doors in the room
+abstract class Pomieszczenie {
+    ArrayList<Drzwi> drzwi;
 
     public Pomieszczenie() {
         this.drzwi = new ArrayList<>();
     }
 
-    public void createDoors(int n) {
+    public void openEveryDoor(){
+        for (Drzwi value : drzwi) {
+            value.open();
+        }
+    }
+    public void closeEveryDoor(){
+        for (Drzwi value : drzwi) {
+            value.close();
+        }
+    }
+    public void generateDrzwi(int n, Pomieszczenie drugiePomieszczenie) {
         for (int i = 0; i < n; i++) {
-            this.drzwi.add(new Drzwi());
+            Drzwi drugaStrona = new Drzwi(null, drugiePomieszczenie);
+            Drzwi noweDrzwi = new Drzwi(drugaStrona, this);
+            drugaStrona.drugaStronaDrzwi = noweDrzwi;
+            this.drzwi.add(noweDrzwi);
         }
     }
 
-    public void openDoors() {
-        for (Drzwi drzwi : this.drzwi) {
-            drzwi.open();
-        }
-    }
 }
